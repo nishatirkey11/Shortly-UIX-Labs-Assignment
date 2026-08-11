@@ -69,16 +69,16 @@ export default function CreateLinkForm({
 
         ...(customSlug.trim()
           ? {
-              customSlug:
-                customSlug.trim()
-            }
+            customSlug:
+              customSlug.trim()
+          }
           : {}),
 
         ...(clickCap
           ? {
-              clickCap:
-                Number(clickCap)
-            }
+            clickCap:
+              Number(clickCap)
+          }
           : {})
       });
 
@@ -88,10 +88,10 @@ export default function CreateLinkForm({
       setCustomSlug("");
       setClickCap("");
 
-    //   onCreated();
-    setTimeout(() => {
       onCreated();
-    }, 5000);
+      // setTimeout(() => {
+      //   onCreated();
+      // }, 5000);
 
     } catch (error) {
       setError(
