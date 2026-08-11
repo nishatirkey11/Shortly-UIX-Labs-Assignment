@@ -132,22 +132,7 @@ As a high-traffic production service, URL redirection must optimize for low late
 
 ---
 
-## 6. Technical Debt & Code Cleanup
-### Frontend CreateLinkForm Delay
-In the current React client [CreateLinkForm.tsx](file:///c:/Users/neela/Desktop/UIX-Assignment/shortly/client/src/components/CreateLinkForm.tsx#L91-L94), there is an artificial delay:
-```typescript
-// client/src/components/CreateLinkForm.tsx
-//   onCreated();
-setTimeout(() => {
-  onCreated();
-}, 5000);
-```
-* **Implications**: When a link is created, the dashboard dashboard list does not refresh for 5 seconds. This is a negative UX pattern.
-* **Resolution**: This delay should be removed. The dashboard should either re-fetch instantly on callback (`onCreated()`) or implement optimistic UI updates, showing the newly generated link immediately in a loading state.
-
----
-
-## 7. AI Assistant Utilization Disclosure
+## 6. AI Assistant Utilization Disclosure
 AI assistant systems were utilized during development to verify concurrency patterns, review SQL optimizations, and format comprehensive system documents.
 * **Concurrency Validation**: Verified that the SQL condition within the update clause acts as a concurrency barrier under PostgreSQL transactional guarantees.
 * **Refactoring and Review**: Assisted in refactoring endpoint types and cleaning up Express route definitions.
